@@ -1,0 +1,5 @@
+shoots>=0.7.3
+shoots-uibase
+shoots-android
+shoots-android-byted
+ui-ext-byted

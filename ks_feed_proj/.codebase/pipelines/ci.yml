@@ -1,0 +1,17 @@
+name: upload_case
+trigger:
+  push:
+    types: [branch]
+  manual:
+jobs:
+  upload_case:
+    image: hub.byted.org/tce/toutiao.shoots.ci.executor_base:latest
+    envs:
+      LOG_UPLOAD_CASES: "0"
+      TEST_ENV_UPLOADING: "0"
+    steps:
+      - name: upload case
+        commands:
+          - pip3 install -r requirements.txt -i https://shoots-pypi.bytedance.net
+          - pip3 install shoots-ci-tools -U -i https://shoots-pypi.bytedance.net
+          - python3 -m ci_tools upload_case
